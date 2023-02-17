@@ -63,9 +63,9 @@ public class AnnotationStubIndex extends FileBasedIndexExtension<String, Void> {
                     String beanId = "";
                     for (PhpDocTag phpDocTag: annotationDocTags) {
                         String text = phpDocTag.getText();
-                        String Regx = "\"([a-zA-Z.]+)\"";
+                        String Regx = "\"([a-zA-Z.1-9]+)\"";
                         if (text.contains("name")) {
-                            Regx = "name=\"([a-zA-Z.]+)\"";
+                            Regx = "name=\"([a-zA-Z.1-9]+)\"";
                         }
                         Matcher matcher = Pattern.compile(Regx).matcher(text);
                         while (matcher.find()) {
@@ -97,6 +97,9 @@ public class AnnotationStubIndex extends FileBasedIndexExtension<String, Void> {
     @Override
     public FileBasedIndex.@NotNull InputFilter getInputFilter() {
         return file -> {
+//            if (file.getPath().contains("RetailScaleData")) {
+//                System.out.println(file.getPath());
+//            }
             boolean con1 = file.getFileType() == PhpFileType.INSTANCE;
             boolean con2 = file.getPath().contains("EMao");
             boolean con3 = file.getPath().contains("Data");

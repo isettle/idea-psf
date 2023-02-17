@@ -26,6 +26,10 @@
     <extensions defaultExtensionNs="com.intellij">
         <codeInsight.lineMarkerProvider language="PHP" implementationClass="com.emao.swoft.psf.provider.MarkerProvider"/>
         <fileBasedIndex implementation="com.emao.swoft.psf.index.AnnotationStubIndex"/>
+        <psi.referenceContributor implementation="com.emao.swoft.psf.reference.BeanReferenceContributor" language="PHP"/>
+        <lang.documentationProvider language="PHP" implementationClass="com.emao.swoft.psf.action.PsfDaoDocumentation" order="first"/>
     </extensions>
     <!-- Targeting PhpStorm, so is dependent on the PHP plugin -->
+    <extensions defaultExtensionNs="com.jetbrains.php">
+    </extensions>
 </idea-plugin>
