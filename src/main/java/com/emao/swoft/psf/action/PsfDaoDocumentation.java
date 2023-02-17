@@ -34,7 +34,7 @@ public class PsfDaoDocumentation extends PhpDocumentationProvider {
         }
 
         Method destEl = (Method) BeanUtil.getPsfCallElement(methodRefer);
-        String methodDoc = super.generateDoc(destEl, destEl.getNameIdentifier());
+        String methodDoc = super.generateDoc(destEl, originalElement);
         @Nullable Field destDaoEl = Objects.requireNonNull(destEl.getContainingClass()).findFieldByName("dao", false);
         String tips = "<div class=\"definition\">Data层说明</div>" + methodDoc;
         if (destDaoEl == null){
@@ -62,7 +62,7 @@ public class PsfDaoDocumentation extends PhpDocumentationProvider {
                 "<div class='definition'>\n" +
                 "<pre><b>Dao</b> <a href='" + daoMethodAnchor + "'>" + daoFQN + "</a></pre>\n" +
                 "</div>" +
-                "<div class='content'><textarea rows=\"" + daoMethodContent.split("\n").length / 2  + "\" cols=\"" + daoMethodContent.indexOf("\n") + "\">" + daoMethod.getText() + "</textarea></div>\n";
+                "<div class='content'><textarea rows=\"" + daoMethodContent.split("\n").length  + "\" cols='120'>" + daoMethod.getText() + "</textarea></div>\n";
 
         // Entity
         @Nullable Field entityField = daoPhpClass.findOwnFieldByName("entity", false);
