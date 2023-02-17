@@ -16,6 +16,16 @@
     <description><![CDATA[
     psf method of swoft project tipping.<br>
     <em>psf tip</em>
+    [新增功能](main): 1.1版本
+
+修复：当bean.name含有数字时，无法跳转到Data层的问题
+新增：psf()->call()方法文档显示替换：
+
+1、显示Data层方法签名详情，更方便查看相应Data层函数参数说明
+
+2、显示Dao层类名、Dao对应的函数代码，支持跳转到该Dao文件
+
+3、显示Entity层类名、类注释（如数据名称、表名称），支持跳转到该文件
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.

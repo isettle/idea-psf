@@ -58,7 +58,7 @@ public class PsfDaoDocumentation extends PhpDocumentationProvider {
         }
         assert daoMethod != null;
         String daoMethodContent = daoMethod.getText();
-        tips += "<hr>/<br/><div class=\"definition\">Dao层说明</div>\n" +
+        tips += "<hr><br/><div class=\"definition\">Dao层说明</div>\n" +
                 "<div class='definition'>\n" +
                 "<pre><b>Dao</b> <a href='" + daoMethodAnchor + "'>" + daoFQN + "</a></pre>\n" +
                 "</div>" +
