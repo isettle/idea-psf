@@ -57,13 +57,10 @@ public class PsfDaoDocumentation extends PhpDocumentationProvider {
             daoMethodAnchor = "psi_element://" + daoMethodFQN;
         }
         assert daoMethod != null;
-        String daoMethodContent = daoMethod.getText();
         tips += "<hr><br/><div class=\"definition\">Dao层说明</div>\n" +
                 "<div class='definition'>\n" +
                 "<pre><b>Dao</b> <a href='" + daoMethodAnchor + "'>" + daoFQN + "</a></pre>\n" +
-                "</div>" +
-                "<div class='content'><textarea rows=\"" + daoMethodContent.split("\n").length  + "\" cols='120'>" + daoMethod.getText() + "</textarea></div>\n";
-
+                "</div>";
         // Entity
         @Nullable Field entityField = daoPhpClass.findOwnFieldByName("entity", false);
         if (entityField == null) {
