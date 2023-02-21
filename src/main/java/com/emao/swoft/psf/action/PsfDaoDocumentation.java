@@ -27,11 +27,10 @@ public class PsfDaoDocumentation extends PhpDocumentationProvider {
             return super.generateDoc(element, originalElement);
         }
 
-        assert originalElement != null;
-        MethodReference methodRefer = (MethodReference) originalElement.getParent();
-        if (methodRefer == null) {
+        if (originalElement == null || !(originalElement.getParent() instanceof MethodReference)) {
             return super.generateDoc(element, originalElement);
         }
+        MethodReference methodRefer = (MethodReference) originalElement.getParent();
 
         Method destEl = (Method) BeanUtil.getPsfCallElement(methodRefer);
         String methodDoc = super.generateDoc(destEl, originalElement);
